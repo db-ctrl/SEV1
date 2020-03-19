@@ -1,0 +1,329 @@
+
+----- Generating text after Epoch: 0
+----- Diversity:0.3
+----- Generating with seed:
+"for a while, but after walking twice around every other pair in the room felt"
+for a while, but after walking twice around every other pair in the room felt . the he . to the his . . to the the and of the he the do
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"for a while, but after walking twice around every other pair in the room felt"
+for a while, but after walking twice around every other pair in the room felt . the but 
+ i . of the the and to the do very . to a a
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"for a while, but after walking twice around every other pair in the room felt"
+for a while, but after walking twice around every other pair in the room felt to the be . the to his he for better 
+ said the george 
+ both the something
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"for a while, but after walking twice around every other pair in the room felt"
+for a while, but after walking twice around every other pair in the room felt the window the he know . said to such her one right that had a to sure was
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"for a while, but after walking twice around every other pair in the room felt"
+for a while, but after walking twice around every other pair in the room felt the tell of he have hogwarts he a still - the other - the him it the there's
+================================================================================
+
+----- Generating text after Epoch: 1
+----- Diversity:0.3
+----- Generating with seed:
+"was a very feeble joke if he was - ron could not see it at"
+was a very feeble joke if he was - ron could not see it at the few to eyes the classroom few few few end the eyebrows was pitch 
+ the heart the
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"was a very feeble joke if he was - ron could not see it at"
+was a very feeble joke if he was - ron could not see it at to to to said come the able of the few few few eyebrows great only the good only
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"was a very feeble joke if he was - ron could not see it at"
+was a very feeble joke if he was - ron could not see it at to you to to . 
+ a clear my legs opposite dormitory had hard been his tall clean
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"was a very feeble joke if he was - ron could not see it at"
+was a very feeble joke if he was - ron could not see it at had angrily. harry to you a hand, our tall packed how a empty don' still floor. you him,
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"was a very feeble joke if he was - ron could not see it at"
+was a very feeble joke if he was - ron could not see it at a feet the bed smile in his might george the tree 'and emerged on down time. he george
+================================================================================
+
+----- Generating text after Epoch: 2
+----- Diversity:0.3
+----- Generating with seed:
+"getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you"
+getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you his of and a forest the own room and the black door the pitch to the own room
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you"
+getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you to a office and were at to were and the own door he on the head and the
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you"
+getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you at seemed the staircase a ceiling the great giant door to his broom the note to the chair
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you"
+getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you been on to and that the head his lift a forehead that the bin 
+ a window reached
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you"
+getting up from the floor. 
+ 'i thought not,' said snape, watching him closely. 'you still were attacked of to he halfway him!' - 
+ a door the snake of and had right
+================================================================================
+
+----- Generating text after Epoch: 3
+----- Diversity:0.3
+----- Generating with seed:
+"people to the order - ' said hermione. 
+ 'and some of them are standing"
+people to the order - ' said hermione. 
+ 'and some of them are standing the hall, and the forbidden door to the common of the room of the dark of the bell
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"people to the order - ' said hermione. 
+ 'and some of them are standing"
+people to the order - ' said hermione. 
+ 'and some of them are standing heard as and on the bell of the snake of the snake of the side of the side
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"people to the order - ' said hermione. 
+ 'and some of them are standing"
+people to the order - ' said hermione. 
+ 'and some of them are standing and from the daily few rest his day, the hall, to the morning of the ceiling to the
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"people to the order - ' said hermione. 
+ 'and some of them are standing"
+people to the order - ' said hermione. 
+ 'and some of them are standing the bell black very room of the few way and she were of the nose and harry on
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"people to the order - ' said hermione. 
+ 'and some of them are standing"
+people to the order - ' said hermione. 
+ 'and some of them are standing harry pull with could and was was and and opened will the full of a few da lesson
+================================================================================
+
+----- Generating text after Epoch: 4
+----- Diversity:0.3
+----- Generating with seed:
+"all three of them, lost in thought, but as they reached the bottom of the"
+all three of them, lost in thought, but as they reached the bottom of the bell room the thestral of the forest. the sharp of the door, of the sharp of the day,
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"all three of them, lost in thought, but as they reached the bottom of the"
+all three of them, lost in thought, but as they reached the bottom of the door, of the forbidden way to the hall, and the month and the hall, the room of the
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"all three of them, lost in thought, but as they reached the bottom of the"
+all three of them, lost in thought, but as they reached the bottom of the hospital of the voice, stomach . . . . but what to plain have . . . .
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"all three of them, lost in thought, but as they reached the bottom of the"
+all three of them, lost in thought, but as they reached the bottom of the room a percy a door not hardly the spot of the room and the thestral inside i more
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"all three of them, lost in thought, but as they reached the bottom of the"
+all three of them, lost in thought, but as they reached the bottom of the own eaters his deal of a end right had find he was that who and as other from
+================================================================================
+
+----- Generating text after Epoch: 5
+----- Diversity:0.3
+----- Generating with seed:
+"see how he takes it.' 
+ sirius walked across the room to where the tapestry"
+see how he takes it.' 
+ sirius walked across the room to where the tapestry and the ceiling to the hall, a hall, and the tall door the floor and the room and
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"see how he takes it.' 
+ sirius walked across the room to where the tapestry"
+see how he takes it.' 
+ sirius walked across the room to where the tapestry and the room his sharp head and their time, of the room and be of the sharp time,
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"see how he takes it.' 
+ sirius walked across the room to where the tapestry"
+see how he takes it.' 
+ sirius walked across the room to where the tapestry and the door and the room and a girls' common hall, i is been ron. to with he
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"see how he takes it.' 
+ sirius walked across the room to where the tapestry"
+see how he takes it.' 
+ sirius walked across the room to where the tapestry out at the day, the thestral the bell bit a class, few window he had st pain to
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"see how he takes it.' 
+ sirius walked across the room to where the tapestry"
+see how he takes it.' 
+ sirius walked across the room to where the tapestry and he to keep to harry, up for though in the slamming of the end of the closed
+================================================================================
+
+----- Generating text after Epoch: 6
+----- Diversity:0.3
+----- Generating with seed:
+"to see as i see, to know as i know . . . of course,"
+to see as i see, to know as i know . . . of course, what the man and the pitch to the forest. the ceiling the real hall, his own idea 
+
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"to see as i see, to know as i know . . . of course,"
+to see as i see, to know as i know . . . of course, what to to the end of the floor the kitchen. and the room and though the weak eaters
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"to see as i see, to know as i know . . . of course,"
+to see as i see, to know as i know . . . of course, to want to the dark door the matter of the hall. harry had been been in the hall,
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"to see as i see, to know as i know . . . of course,"
+to see as i see, to know as i know . . . of course, we a pair and emerged and the hospital of the room and the wish and george did not
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"to see as i see, to know as i know . . . of course,"
+to see as i see, to know as i know . . . of course, you see to will potter?' you be got at to to losing upstairs it to keep had a
+================================================================================
+
+----- Generating text after Epoch: 7
+----- Diversity:0.3
+----- Generating with seed:
+"'em to go an' made 'em live a good long way from us an' they"
+'em to go an' made 'em live a good long way from us an' they was been been to not to have to a little of the room and the hall, of the
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"'em to go an' made 'em live a good long way from us an' they"
+'em to go an' made 'em live a good long way from us an' they was seen his eyes and the door of the ceiling and his head at the bell eaters and
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"'em to go an' made 'em live a good long way from us an' they"
+'em to go an' made 'em live a good long way from us an' they on the row of his hands and was, harry would a strong idea to the pitch the row
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"'em to go an' made 'em live a good long way from us an' they"
+'em to go an' made 'em live a good long way from us an' they did were there, the inches with the hall, where the forest. the eaters and the door and the
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"'em to go an' made 'em live a good long way from us an' they"
+'em to go an' made 'em live a good long way from us an' they would have to be except it hermione never as a own little friend but to the common staircase
+================================================================================
+
+----- Generating text after Epoch: 8
+----- Diversity:0.3
+----- Generating with seed:
+"about last summer happened again last night when i was doing a detention with umbridge."
+about last summer happened again last night when i was doing a detention with umbridge. 
+ he had been managed to him, the matter of the row of the bell hall, and the
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"about last summer happened again last night when i was doing a detention with umbridge."
+about last summer happened again last night when i was doing a detention with umbridge. 
+ he had been been in his trunk and was were at the thestral and the ceiling and
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"about last summer happened again last night when i was doing a detention with umbridge."
+about last summer happened again last night when i was doing a detention with umbridge. 
+ harry was been hastily, a door and the door and the great door and harry and the
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"about last summer happened again last night when i was doing a detention with umbridge."
+about last summer happened again last night when i was doing a detention with umbridge. 
+ but he was just more of the three door of the best to the ceiling and the
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"about last summer happened again last night when i was doing a detention with umbridge."
+about last summer happened again last night when i was doing a detention with umbridge. 
+ he was been weasley his head as the hats to the forest. and the tiny hall, heavily
+================================================================================
+
+----- Generating text after Epoch: 9
+----- Diversity:0.3
+----- Generating with seed:
+"at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.'"
+at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.' 
+ harry had been at the black of the hall, and the seventh hall. the tiny door and
+================================================================================
+----- Diversity:0.4
+----- Generating with seed:
+"at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.'"
+at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.' 
+ 'you know you have his eye and a little real of the horrible with his hands and
+================================================================================
+----- Diversity:0.5
+----- Generating with seed:
+"at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.'"
+at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.' 
+ harry was down his crying that they and been were to a real - he and yelled
+================================================================================
+----- Diversity:0.6
+----- Generating with seed:
+"at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.'"
+at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.' 
+ about it was a bit of a little door at the door and the entrance room and
+================================================================================
+----- Diversity:0.7
+----- Generating with seed:
+"at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.'"
+at harry, frowning slightly. 
+ 'very well, then, potter, you tell the headmaster about it.' 
+ the few eyes she up as the fountain and him, a few won't are - ' 
+
+================================================================================

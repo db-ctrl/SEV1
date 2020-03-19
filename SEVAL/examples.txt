@@ -1,0 +1,292 @@
+
+----- Generating text after Epoch: 0
+----- Diversity:0.3
+----- Generating with seed:
+"through the surface of the bell jar as though it"
+through the surface of the bell jar as though it the other had of the few door the door the table the head the door
+----- Diversity:0.4
+----- Generating with seed:
+"through the surface of the bell jar as though it"
+through the surface of the bell jar as though it and a few feet his door to the door he had and a door to
+----- Diversity:0.5
+----- Generating with seed:
+"through the surface of the bell jar as though it"
+through the surface of the bell jar as though it of to a few having a end the end and the door a own of
+----- Diversity:0.6
+----- Generating with seed:
+"through the surface of the bell jar as though it"
+through the surface of the bell jar as though it and was had had the voice the hall the few stone new stomach her room
+----- Diversity:0.7
+----- Generating with seed:
+"through the surface of the bell jar as though it"
+through the surface of the bell jar as though it of and to want to never and behind 'it more, his opened at would to
+================================================================================
+
+----- Generating text after Epoch: 1
+----- Diversity:0.3
+----- Generating with seed:
+"was quite sure they were alone now and waited for"
+was quite sure they were alone now and waited for the other eyes of the scar and the quidditch door of the hall, of the
+----- Diversity:0.4
+----- Generating with seed:
+"was quite sure they were alone now and waited for"
+was quite sure they were alone now and waited for the usual mouth and harry. 
+ harry was a back of the other door and
+----- Diversity:0.5
+----- Generating with seed:
+"was quite sure they were alone now and waited for"
+was quite sure they were alone now and waited for i was be a bit to be the dark table he was my - '
+----- Diversity:0.6
+----- Generating with seed:
+"was quite sure they were alone now and waited for"
+was quite sure they were alone now and waited for him a deep eyes the group of the invisibility of the end of the wand
+----- Diversity:0.7
+----- Generating with seed:
+"was quite sure they were alone now and waited for"
+was quite sure they were alone now and waited for an look a little and quidditch going to what him professor same had 'em *
+================================================================================
+
+----- Generating text after Epoch: 2
+----- Diversity:0.3
+----- Generating with seed:
+"harry. 
+ 'let me out,' harry said yet again, in"
+harry. 
+ 'let me out,' harry said yet again, in the door. of the other door and he had been a little in the hall,
+----- Diversity:0.4
+----- Generating with seed:
+"harry. 
+ 'let me out,' harry said yet again, in"
+harry. 
+ 'let me out,' harry said yet again, in the door and the one of the place and a few weasley of the door
+----- Diversity:0.5
+----- Generating with seed:
+"harry. 
+ 'let me out,' harry said yet again, in"
+harry. 
+ 'let me out,' harry said yet again, in the little in the room of the other end of the window and he was
+----- Diversity:0.6
+----- Generating with seed:
+"harry. 
+ 'let me out,' harry said yet again, in"
+harry. 
+ 'let me out,' harry said yet again, in a few minutes and they was taken from the quidditch black wand and he was
+----- Diversity:0.7
+----- Generating with seed:
+"harry. 
+ 'let me out,' harry said yet again, in"
+harry. 
+ 'let me out,' harry said yet again, in the statue of the hall, of then another wand in his bottle with his eyes
+================================================================================
+
+----- Generating text after Epoch: 3
+----- Diversity:0.3
+----- Generating with seed:
+"told me to come and check on you,' said ron"
+told me to come and check on you,' said ron with a few voice. 
+ harry did not not to be the door of the
+----- Diversity:0.4
+----- Generating with seed:
+"told me to come and check on you,' said ron"
+told me to come and check on you,' said ron and a few moment of the end of the end of the front of the
+----- Diversity:0.5
+----- Generating with seed:
+"told me to come and check on you,' said ron"
+told me to come and check on you,' said ron and harry looked as he was a little in the corridor and that he had
+----- Diversity:0.6
+----- Generating with seed:
+"told me to come and check on you,' said ron"
+told me to come and check on you,' said ron with a little with a few voice. 
+ but he had expected to a particularly
+----- Diversity:0.7
+----- Generating with seed:
+"told me to come and check on you,' said ron"
+told me to come and check on you,' said ron looking at half them. 
+ 'i'm . . . well, . . . 
+ the
+================================================================================
+
+----- Generating text after Epoch: 4
+----- Diversity:0.3
+----- Generating with seed:
+"not what this meeting was supposed to be about -"
+not what this meeting was supposed to be about - ' 
+ but you been a little in a little and as they reached the
+----- Diversity:0.4
+----- Generating with seed:
+"not what this meeting was supposed to be about -"
+not what this meeting was supposed to be about - ' 
+ 'i didn't tell you to tell me - you - ' 
+ the
+----- Diversity:0.5
+----- Generating with seed:
+"not what this meeting was supposed to be about -"
+not what this meeting was supposed to be about - ' 
+ harry had just seen the wand was a few weasley and he felt
+----- Diversity:0.6
+----- Generating with seed:
+"not what this meeting was supposed to be about -"
+not what this meeting was supposed to be about - ' 
+ 'i wanted to be any off to talk out the dark time, his
+----- Diversity:0.7
+----- Generating with seed:
+"not what this meeting was supposed to be about -"
+not what this meeting was supposed to be about - ' 
+ 'don't was not - ' 
+ he began. he did not know what
+================================================================================
+
+----- Generating text after Epoch: 5
+----- Diversity:0.3
+----- Generating with seed:
+"than that.' 
+ there was a pause and harry knew"
+than that.' 
+ there was a pause and harry knew the one of the corridor of the right and the end of the corridor and
+----- Diversity:0.4
+----- Generating with seed:
+"than that.' 
+ there was a pause and harry knew"
+than that.' 
+ there was a pause and harry knew the door of the end of the door and he saw the other door on
+----- Diversity:0.5
+----- Generating with seed:
+"than that.' 
+ there was a pause and harry knew"
+than that.' 
+ there was a pause and harry knew to the other of the 
+ the door of the end of the corridor and
+----- Diversity:0.6
+----- Generating with seed:
+"than that.' 
+ there was a pause and harry knew"
+than that.' 
+ there was a pause and harry knew the right of the front of the right door and then then then a small
+----- Diversity:0.7
+----- Generating with seed:
+"than that.' 
+ there was a pause and harry knew"
+than that.' 
+ there was a pause and harry knew him . . . 
+ a few of the door of the door. the room
+================================================================================
+
+----- Generating text after Epoch: 6
+----- Diversity:0.3
+----- Generating with seed:
+"it must have been that one, it's too much of"
+it must have been that one, it's too much of a feeling of the arm . . .' 
+ harry was a little his eyes
+----- Diversity:0.4
+----- Generating with seed:
+"it must have been that one, it's too much of"
+it must have been that one, it's too much of a old own and he did not know how to see it was not in
+----- Diversity:0.5
+----- Generating with seed:
+"it must have been that one, it's too much of"
+it must have been that one, it's too much of the first of the end of magic and now but a low for a long
+----- Diversity:0.6
+----- Generating with seed:
+"it must have been that one, it's too much of"
+it must have been that one, it's too much of the same in the end of the corridor as though several of a week of
+----- Diversity:0.7
+----- Generating with seed:
+"it must have been that one, it's too much of"
+it must have been that one, it's too much of the right of the thing he could not walk up for the next door of
+================================================================================
+
+----- Generating text after Epoch: 7
+----- Diversity:0.3
+----- Generating with seed:
+"if any of them knew, if any of them had"
+if any of them knew, if any of them had been a good days . . . 
+ and i think it was a good
+----- Diversity:0.4
+----- Generating with seed:
+"if any of them knew, if any of them had"
+if any of them knew, if any of them had been a good days 
+ the death eaters came in the hall of the end
+----- Diversity:0.5
+----- Generating with seed:
+"if any of them knew, if any of them had"
+if any of them knew, if any of them had been a little in the office and he heard his anger from his voice and
+----- Diversity:0.6
+----- Generating with seed:
+"if any of them knew, if any of them had"
+if any of them knew, if any of them had been for a little that he would have been a feeling of his malfoy to
+----- Diversity:0.7
+----- Generating with seed:
+"if any of them knew, if any of them had"
+if any of them knew, if any of them had just in the end of the place for a few than several then harry spent
+================================================================================
+
+----- Generating text after Epoch: 8
+----- Diversity:0.3
+----- Generating with seed:
+"be back at any moment . . . but harry"
+be back at any moment . . . but harry had never seen his face and was a few days he had never been about
+----- Diversity:0.4
+----- Generating with seed:
+"be back at any moment . . . but harry"
+be back at any moment . . . but harry had never seen his face and his eyes had had been very face on the
+----- Diversity:0.5
+----- Generating with seed:
+"be back at any moment . . . but harry"
+be back at any moment . . . but harry had been a good little in the three people even a only distant of of
+----- Diversity:0.6
+----- Generating with seed:
+"be back at any moment . . . but harry"
+be back at any moment . . . but harry was not to say. the was in the front of the forbidden hall by the
+----- Diversity:0.7
+----- Generating with seed:
+"be back at any moment . . . but harry"
+be back at any moment . . . but harry was enough to see it.' 
+ the door slid harry sat towards the table of
+================================================================================
+
+----- Generating text after Epoch: 9
+----- Diversity:0.3
+----- Generating with seed:
+"he would have to run - now. where he was"
+he would have to run - now. where he was no longer - ter was a one of the right time to be in the
+----- Diversity:0.4
+----- Generating with seed:
+"he would have to run - now. where he was"
+he would have to run - now. where he was no face was was not - but he had never seen his face was in
+----- Diversity:0.5
+----- Generating with seed:
+"he would have to run - now. where he was"
+he would have to run - now. where he was not you, he was sure it was going to be sure that he had never
+----- Diversity:0.6
+----- Generating with seed:
+"he would have to run - now. where he was"
+he would have to run - now. where he was no choice ter was a clear snape could not says he did not want to
+----- Diversity:0.7
+----- Generating with seed:
+"he would have to run - now. where he was"
+he would have to run - now. where he was no longer come was not at harry. he thought he was not as much through
+================================================================================
+
+----- Generating text after Epoch: 10
+----- Diversity:0.3
+----- Generating with seed:
+"'well . . . we all got away, didn't we?'"
+'well . . . we all got away, didn't we?' said harry, in a voice crying an hour his eyes hedwig's as of her silver
+----- Diversity:0.4
+----- Generating with seed:
+"'well . . . we all got away, didn't we?'"
+'well . . . we all got away, didn't we?' said ron in a very long voice. 
+ 'but it was sure it was not
+----- Diversity:0.5
+----- Generating with seed:
+"'well . . . we all got away, didn't we?'"
+'well . . . we all got away, didn't we?' said harry was rather more with a expression of his head and ron were the
+----- Diversity:0.6
+----- Generating with seed:
+"'well . . . we all got away, didn't we?'"
+'well . . . we all got away, didn't we?' said harry, in a voice later though he had been looking up in the right
+----- Diversity:0.7
+----- Generating with seed:
+"'well . . . we all got away, didn't we?'"
+'well . . . we all got away, didn't we?' said harry, with a little a little struggling sitting his head from all the right
+================================================================================
