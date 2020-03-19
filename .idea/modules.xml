@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../LSTM-Text-Generator/.idea/db-Text-Generator.iml" filepath="$PROJECT_DIR$/../LSTM-Text-Generator/.idea/db-Text-Generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/sentence_evaluator.iml" filepath="$PROJECT_DIR$/.idea/sentence_evaluator.iml" />
     </modules>
   </component>
