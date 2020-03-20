@@ -19,8 +19,7 @@ def text_2_list(corpus):
         text = f.read()
         f.close()
 
-    sent_list = str(SpacyFuncs.break_sentences(text)).split(",")
-    documents = sent_list
+    documents = SpacyFuncs.break_sentences(text)
 
     return documents
 

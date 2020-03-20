@@ -8,7 +8,6 @@ import nltk
 # Spacy's sentence segmentation which can
 # be found at https://spacy.io/usage/spacy-101
 
-# TODO: Consider finding a less RAM hungry sentence breaker
 
 def break_sentences(text):
     # cleaning up raw text
@@ -16,7 +15,7 @@ def break_sentences(text):
     text = text.replace('\'', '')
     text = text.replace('. . .', ',')
 
-    # splitting text via regex
+    # stripping  & splitting(regex) text
     sentences = [x.strip(' ') for x in (re.split(r'(?<!\w\.\w.)(?<![A-Z]\.)(?<![A-Z][a-z]\.)(?<=\.|\?) ', text))]
 
     return sentences
