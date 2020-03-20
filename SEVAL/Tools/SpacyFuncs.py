@@ -11,12 +11,13 @@ import nltk
 # TODO: Consider finding a less RAM hungry sentence breaker
 
 def break_sentences(text):
-    # removing all newlines
-    # TODO: Cleanup edge cases (fix "'", "'s Screams..." sentences
-    #text = text.replace('\n', ' ')
-   # text = text.replace('(\')', '')
+    # cleaning up raw text
+    text = text.replace('\n', ' ')
+    text = text.replace('\'', '')
+    text = text.replace('. . .', ',')
 
-    sentences = nltk.sent_tokenize(text, language="english")
+    # splitting text via regex
+    sentences = [x.strip(' ') for x in (re.split(r'(?<!\w\.\w.)(?<![A-Z]\.)(?<![A-Z][a-z]\.)(?<=\.|\?) ', text))]
 
     return sentences
 
