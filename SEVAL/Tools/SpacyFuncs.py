@@ -2,6 +2,7 @@ import spacy
 import re
 from textstat.textstat import textstatistics, easy_word_set, legacy_round
 from spacy.lang.en import English
+import nltk
 
 # Splits the text into sentences, using
 # Spacy's sentence segmentation which can
@@ -12,20 +13,10 @@ from spacy.lang.en import English
 def break_sentences(text):
     # removing all newlines
     # TODO: Cleanup edge cases (fix "'", "'s Screams..." sentences
-    text = text.replace('\n', ' ')
-    text = text.replace('(\')', '')
+    #text = text.replace('\n', ' ')
+   # text = text.replace('(\')', '')
 
-    # Configure document nlp
-    nlp = spacy.load("en_core_web_sm")
-    # max harry potter corpus length
-    nlp.max_length = 1523060
-    doc = nlp(text)
-    sentences = []
-
-    for sent in doc.sents:
-        single = sent.string.strip()
-        # TODO: Make catch for last  comma at end of list
-        sentences.append("\"" + single + "\",")
+    sentences = nltk.sent_tokenize(text, language="english")
 
     return sentences
 
