@@ -21,7 +21,6 @@ def break_sentences(text):
     nlp = English.load()
     doc = nlp(text)
     sentences = [sent.string.strip() for sent in doc.sents]
-# TODO: Fix break sentences to work as document formatted output "sentence1, Sentence2 , etc"
 
 # Collect a range of sentences (MainPackage, because that's where the sents start being unique"
     for sent in sentences:

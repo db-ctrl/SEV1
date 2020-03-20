@@ -13,8 +13,7 @@ def break_sentences(text):
     # removing all newlines
     # TODO: Cleanup edge cases (fix "'", "'s Screams..." sentences
     text = text.replace('\n', ' ')
-    # text = text.replace('‘', '"')
-    # text = text.replace('’', '"')
+    text = text.replace('(\')', '')
 
     # Configure document nlp
     nlp = spacy.load("en_core_web_sm")
@@ -24,12 +23,10 @@ def break_sentences(text):
     sentences = []
 
     for sent in doc.sents:
-        # if sent
         single = sent.string.strip()
         # TODO: Make catch for last  comma at end of list
         sentences.append("\"" + single + "\",")
 
-    # sentences[:-1] = sent.string.strip(',')
     return sentences
 
 # Returns Number of Words in the text
