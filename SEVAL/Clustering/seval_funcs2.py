@@ -41,9 +41,7 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
 
     # initialise counters
     words_in_clus, hit_list = ([] for i in range(2))
-    # hell
-    # convert sentence to lowercase & split into list of words
-    sentence.lower()
+    # split into list of words
     word_list = sentence.split(" ")
 
     # check if a specific word is in a cluster

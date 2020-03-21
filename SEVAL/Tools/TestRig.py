@@ -1,9 +1,8 @@
 from scipy.stats import entropy
 
-words_in_clus = ["hi"]
+words = "of his bed. harry scrambled into them. the blank of his is together the didn\'t at the"
 
 word_count = 26
 
-ent = entropy([len(words_in_clus) / word_count,  (word_count - len(words_in_clus)) / word_count], base=2)
 
-print(ent)
+print(words)

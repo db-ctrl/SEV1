@@ -49,6 +49,8 @@ def get_word_count(row):
 
 def get_sentence(row):
     sentence = sheet.cell(row, 2).value
+    # convert sentence to lowercase
+    sentence.lower()
     return sentence
 
 
