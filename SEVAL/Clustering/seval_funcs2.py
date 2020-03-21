@@ -2,12 +2,11 @@ from sklearn.cluster import KMeans
 from sklearn.neighbors import NearestCentroid
 from scipy.stats import entropy
 from sklearn.feature_extraction.text import TfidfVectorizer
+from SEVAL.Tools import SpacyFuncs
 from collections import Counter
 import pandas as pd
 import scipy.stats
 import numpy as np
-
-from SEVAL.Tools import SpacyFuncs
 
 # ignore divide by zero
 np.seterr(divide='ignore', invalid='ignore')

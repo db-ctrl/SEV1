@@ -18,7 +18,7 @@ sheet = client.open("AutoSentenceEval").sheet1
 documents = seval_funcs2.text_2_list(CORPUS_PATH)
 
 # initialise g_sheet row
-row = 126
+row = 122
 
 # choose amount of clusters
 
@@ -32,8 +32,7 @@ for i in range(len(sheet.col_values(1))):
 
     # Get values from g_sheet
     word_count = gs_funcs.get_word_count(row)
-    sentence = gs_funcs.get_sentences(row)
-
+    sentence = gs_funcs.get_sentence(row)
     # calculate cluster metrics
     words_in_clus, entropy = seval_funcs2.count_words_in_clus(true_k, order_centroids, terms, sentence, word_count)
 

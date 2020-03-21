@@ -47,9 +47,9 @@ def get_word_count(row):
     return word_c
 
 
-def get_sentences(row):
-    sentences = sheet.cell(row, 2).value
-    return sentences
+def get_sentence(row):
+    sentence = sheet.cell(row, 2).value
+    return sentence
 
 
 def update_entropy(row, entropy):
