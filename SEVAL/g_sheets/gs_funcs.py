@@ -51,6 +51,9 @@ def get_sentence(row):
     sentence = sheet.cell(row, 2).value
     # convert sentence to lowercase
     sentence = sentence.lower()
+    # remove ignored characters from text
+    sentence.replace('\'', '')
+    sentence = sentence.replace('\n', ' ')
     return sentence
 
 
