@@ -34,9 +34,9 @@ for i in range(len(sheet.col_values(1))):
     word_count = gs_funcs.get_word_count(row)
     sentence = gs_funcs.get_sentence(row)
     # calculate cluster metrics
-    words_in_clus, entropy = seval_funcs2.count_words_in_clus(true_k, order_centroids, terms, sentence, word_count)
+    words_in_clus, duo_ent, entropy = seval_funcs2.count_words_in_clus(true_k, order_centroids, terms, sentence, word_count)
 
     # update values in g_sheet
-    gs_funcs.update_metrics(row, words_in_clus, entropy)
+    gs_funcs.update_metrics(row, words_in_clus, duo_ent, entropy)
     row += 1
 
