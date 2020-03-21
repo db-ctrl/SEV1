@@ -48,13 +48,12 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
     for i in range(true_k):
         print("Cluster %d:" % i),
         # Print x amount of words from each cluster
-        for ind in order_centroids[i, :20]:
-            hit_list.insert(ind, terms[ind])
+        for ind in order_centroids[i, : 20]:
             print(' %s' % terms[ind])
-
-        # check if a specific word is in a cluster
-        if terms[ind] in word_list:
-            words_in_clus.append(str(terms[ind]) + " " + "[" + "%d" % i + "] ")
+            # check if a specific word is in a cluster
+            # TODO: Add true entropy calculation using ND array
+            if terms[ind] in word_list:
+                words_in_clus.append(str(terms[ind]) + " " + "[" + "%d" % i + "] ")
 
     if len(words_in_clus) == 0:
         ent = 0

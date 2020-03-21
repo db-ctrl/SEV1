@@ -18,7 +18,7 @@ sheet = client.open("AutoSentenceEval").sheet1
 documents = seval_funcs2.text_2_list(CORPUS_PATH)
 
 # initialise g_sheet row
-row = 122
+row = 131
 
 # choose amount of clusters
 
