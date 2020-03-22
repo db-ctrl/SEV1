@@ -30,10 +30,9 @@ def cluster_texts(documents, true_k,):
 
     model = KMeans(n_clusters=true_k, init='k-means++', max_iter=100, n_init=1)
     model.fit(x)
-
     order_centroids = model.cluster_centers_.argsort()[:, ::-1]
+    # Todo: find cluster closeness (sequence similarity)
     terms = vectorizer.get_feature_names()
-
     return terms, order_centroids
 
 
