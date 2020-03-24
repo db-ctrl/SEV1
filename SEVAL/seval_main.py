@@ -2,6 +2,7 @@ from SEVAL.Clustering import seval_funcs2
 from SEVAL.g_sheets import gs_funcs
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
+from collections import Counter
 ###
 # use creds to create a client to interact with the Google Drive API
 scope = ['https://spreadsheets.google.com/feeds',
