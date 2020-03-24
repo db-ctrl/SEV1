@@ -39,7 +39,7 @@ def cluster_texts(documents, true_k,):
 def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
 
     # initialise counter
-    words_in_clus = []
+    words_in_clus = [true_k+1]
     # split into list of words
     word_list = sentence.split(" ")
     # check if a specific word is in a cluster
@@ -52,11 +52,17 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
             # check if a specific word is in a cluster
             if terms[ind] in word_list:
                 hits += 1
+        words_in_clus.append([hits])
         words_in_clus.append(hits / word_count)
 
-    # TODO: Make entropy between 0 and 1
+    if len(words_in_clus) == 0:
+        ent = 0
+    else:
+        ent = entropy([len(words_in_clus) / word_count, (word_count - len(words_in_clus)) / word_count], base=2)
+        # TODO: Make entropy between 0 and 1
     ent = (word_count - sum(words_in_clus)) / word_count
 
+    return [len(words_in_clus), ent]
     duo_ent = entropy([len(words_in_clus) / word_count, (word_count - len(words_in_clus)) / word_count], base=2)
 
     return [len(words_in_clus), duo_ent, ent]
