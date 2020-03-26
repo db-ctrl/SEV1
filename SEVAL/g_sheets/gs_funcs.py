@@ -5,6 +5,7 @@ import time
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 import math
+import re
 
 # use creds to create a client to interact with the Google Drive API
 scope = ['https://spreadsheets.google.com/feeds',
@@ -17,20 +18,24 @@ client = gspread.authorize(creds)
 sheet = client.open("AutoSentenceEval").sheet1
 
 
-def update_metrics(row, words_in_clus, duo_ent, ent):
+def update_readability_metrics(row):
+
+    # Update Word Count
+    sheet.update_cell(row, 6, (len(sheet.cell(row, 2).value.split()))),
+    time.sleep(1)
+    # Update Flesch Reading Ease
+    sheet.update_cell(row, 7, (textstat.flesch_reading_ease(sheet.cell(row, 2).value))),
+    time.sleep(1)
+    # Update Gunning Fog Index
+    sheet.update_cell(row, 8, (textstat.gunning_fog(sheet.cell(row, 2).value))),
+    time.sleep(1)
+
+
+def update_cluster_metrics(row, words_in_clus, duo_ent, ent):
     # check if row empty
     if len(sheet.cell(row, 2).value.split()) == 0:
         pass
     else:
-        # Update Word Count
-        sheet.update_cell(row, 6, (len(sheet.cell(row, 2).value.split()))),
-        time.sleep(1)
-        # Update Flesch Reading Ease
-        sheet.update_cell(row, 7, (textstat.flesch_reading_ease(sheet.cell(row, 2).value))),
-        time.sleep(1)
-        # Update Gunning Fog Index
-        sheet.update_cell(row, 8, (textstat.gunning_fog(sheet.cell(row, 2).value))),
-        time.sleep(1)
         # Update words in cluster
         sheet.update_cell(row, 9, str(words_in_clus) + "/" + str(len(sheet.cell(row, 2).value.split()))),
         time.sleep(1)
@@ -39,6 +44,7 @@ def update_metrics(row, words_in_clus, duo_ent, ent):
             sheet.update_cell(row, 10, "N/A"),
         else:
             sheet.update_cell(row, 10, duo_ent),
+            sheet.update_cell(row, 11, ent),
         time.sleep(1)
 
 
@@ -48,16 +54,30 @@ def get_word_count(row):
 
 
 def get_sentence(row):
+
+    sentence = sheet.cell(row, 2).value
+    # remove ignored characters from text
+    sentence = sentence.replace('\'', '')
+    sentence = sentence.replace('\n', ' ')
+
+    return sentence
+
+
+def get_bare_sentence(row):
+
     sentence = sheet.cell(row, 2).value
     # convert sentence to lowercase
     sentence = sentence.lower()
     # remove ignored characters from text
     sentence = sentence.replace('\'', '')
     sentence = sentence.replace('\n', ' ')
+    # remove punctuation
+    sentence = re.sub(r'[^\w\s]', '', sentence)
+
     return sentence
 
 
-def update_entropy(row, entropy):
+def update_entropy(row, entropy, duo_ent):
 
     if len(sheet.cell(row, 2).value.split()) == 0:
         pass
@@ -66,4 +86,5 @@ def update_entropy(row, entropy):
         if math.isnan(entropy):
             sheet.update_cell(row, 10, "N/A"),
         else:
-            sheet.update_cell(row, 10, entropy),
+            sheet.update_cell(row, 10, duo_ent),
+            sheet.update_cell(row, 11, entropy),

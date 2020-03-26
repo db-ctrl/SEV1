@@ -42,6 +42,7 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
     # initialise counters
     clus_list = []
     words_in_clus = []
+    absolute_hits = []
     # nc_wc = no cluster word count
     nc_wc = 0
     # split into list of words
@@ -57,6 +58,8 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
             # check if a specific word is in a cluster
             if terms[ind] in word_list:
                 hits += 1
+            if terms[ind] in word_list and terms[ind] not in absolute_hits:
+                absolute_hits.append(terms[ind])
         words_in_clus.append(hits / word_count)
     hit_list = collections.Counter(clus_list)
     for i in word_list:
@@ -69,16 +72,12 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
         else:
             nc_wc += (1 / word_count)
 
-    # TODO: ForLoop around words_in_clus to calculate ent for each list value.
-    for hit in hit_list:
-        hit_list[hit] = 1 / hit_list[hit]
-
     for i in range(len(words_in_clus)):
 
-        ent += entropy([words_in_clus[i], (word_count - (words_in_clus[i]*10)) / word_count], base=2)
+        ent += entropy([words_in_clus[i], (word_count - (words_in_clus[i])) / word_count], base=2)
 
     ent = (ent / len(words_in_clus))
-    duo_ent = entropy([words_in_clus / word_count, (word_count - len(words_in_clus)) / word_count], base=2)
+    duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
 
-    return [len(words_in_clus), duo_ent, ent]
+    return [len(absolute_hits), duo_ent, ent]
 
