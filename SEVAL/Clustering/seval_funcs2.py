@@ -37,7 +37,8 @@ def cluster_texts(documents, true_k,):
 
 
 def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
-
+    # initialise entropy
+    ent = 0;
     # initialise counters
     clus_list = []
     words_in_clus = []
@@ -69,8 +70,14 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
             nc_wc += (1 / word_count)
 
     # TODO: ForLoop around words_in_clus to calculate ent for each list value.
-    ent = entropy([len(words_in_clus) / word_count, (word_count - len(words_in_clus)) / word_count], base=2)
+    for hit in hit_list:
+        hit_list[hit] = 1 / hit_list[hit]
 
+    for i in range(len(words_in_clus)):
+
+        ent += entropy([words_in_clus[i], (word_count - (words_in_clus[i]*10)) / word_count], base=2)
+
+    ent = (ent / len(words_in_clus))
     duo_ent = entropy([words_in_clus / word_count, (word_count - len(words_in_clus)) / word_count], base=2)
 
     return [len(words_in_clus), duo_ent, ent]
