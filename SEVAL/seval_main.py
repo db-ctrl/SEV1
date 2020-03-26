@@ -31,7 +31,9 @@ terms, order_centroids = seval_funcs2.cluster_texts(documents, true_k)
 
 # update sheet values
 for i in range(len(sheet.col_values(1))):
-
+    # ignore blank values
+    if len(sheet.cell(row, 2).value.split()) == 0:
+        pass
     # TODO: update entropy to incorporate words out of cluster (0 values in sheet)
 
     # Get values from g_sheet
