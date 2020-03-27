@@ -39,7 +39,7 @@ def cluster_texts(documents, true_k,):
 def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
 
     # initialise counters
-    clus_list = []
+    hit_list = []
     words_in_clus = []
     absolute_hits = []
     # nc_wc = no cluster word count
@@ -52,16 +52,17 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
         hits = 0
         # Print x amount of words from each cluster
         for ind in order_centroids[i, : 20]:
-            clus_list.insert(i, terms[ind])
             print(' %s' % terms[ind])
-            # check if a specific word is in a cluster
-            if terms[ind] in word_list:
+            hit_list.append(terms[ind])
+        # check if a specific word is in a cluster
+        if terms[ind] in hit_list and terms[ind] in word_list and hit_list[terms[ind]] > 1:
+            hit_list[terms[ind]] = (1 / hit_list[terms[ind]])
+        if terms[ind] in hit_list and terms[ind] in word_list and hit_list[terms[ind]] == 1:
                 absolute_hits.append(terms[ind])
-                hits += 1
         words_in_clus.append(hits / word_count)
-    hit_list = collections.Counter(clus_list)
+    hit_list = collections.Counter(hit_list)
 
-    # Transform word_list into probabilities
+# Transform word_list into probabilities
 
     for i in range(len(word_list)):
 
@@ -78,9 +79,9 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
             nc_wc += 1
             word_list[i] = 0
 
-    words_in_clus.append(nc_wc / word_count)
-   # sum(words_in_clus)
-    ent = entropy(words_in_clus, base=2)
+    word_list.append(nc_wc / word_count)
+   # sum(word_list)
+    ent = entropy(word_list, base=2)
 
     duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
 
