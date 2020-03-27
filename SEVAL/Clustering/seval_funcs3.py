@@ -39,30 +39,30 @@ def cluster_texts(documents, true_k,):
 def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
 
     # initialise counters
-    hit_list = []
+    clus_list = []
     words_in_clus = []
     absolute_hits = []
     # nc_wc = no cluster word count
     nc_wc = 0
+    clus_size = 20
     # split into list of words
     word_list = sentence.split()
+    a = np.array([[0 for x in range(true_k)], [0 for x in range(len(terms))]])
     # check if a specific word is in a cluster
     for i in range(true_k):
         print("Cluster %d:" % i),
         hits = 0
         # Print x amount of words from each cluster
-        for ind in order_centroids[i, : 20]:
+        for ind in order_centroids[i, : clus_size]:
+            clus_list.insert(i, terms[ind])
             print(' %s' % terms[ind])
-            hit_list.append(terms[ind])
-        # check if a specific word is in a cluster
-        if terms[ind] in hit_list and terms[ind] in word_list and hit_list[terms[ind]] > 1:
-            hit_list[terms[ind]] = (1 / hit_list[terms[ind]])
-        if terms[ind] in hit_list and terms[ind] in word_list and hit_list[terms[ind]] == 1:
-                absolute_hits.append(terms[ind])
+            # check if a specific word is in a cluster
+            if terms[ind] in word_list:
+                hits += 1
         words_in_clus.append(hits / word_count)
-    hit_list = collections.Counter(hit_list)
+    hit_list = collections.Counter(clus_list)
 
-# Transform word_list into probabilities
+    # Transform word_list into probabilities
 
     for i in range(len(word_list)):
 
@@ -78,9 +78,9 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
         else:
             nc_wc += 1
             word_list[i] = 0
-
+    sum(word_list)
     word_list.append(nc_wc / word_count)
-   # sum(word_list)
+   # sum(words_in_clus)
     ent = entropy(word_list, base=2)
 
     duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
