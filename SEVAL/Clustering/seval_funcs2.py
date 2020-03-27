@@ -54,7 +54,7 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
         hits = 0
         # Print x amount of words from each cluster
         for ind in order_centroids[i, : clus_size]:
-            # Todo: Append/insert terms to each cluster in hits_2d
+            # Todo: Append/insert terms to each cluster in hits_2dd
             np.append(hits_2d, [[terms[ind]]], axis=i)
             print(' %s' % terms[ind])
             # check if a specific word is in a cluster
