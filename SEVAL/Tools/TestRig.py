@@ -1,11 +1,10 @@
 import numpy as np
 
-true_k = 250
+# Initialise 2D Array
+a = np.array([[0 for x in range(10)] for y in range(5)])
 
-a = np.array([[0 for x in range(true_k)], [4, 5, 6]])
 
-b = np.array([[400], [800]])
+a[1, 8] = 1
 
-newArray = np.append(a, b)
 
-print(newArray)
+print(a)
