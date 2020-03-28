@@ -33,34 +33,30 @@ def cluster_texts(documents, true_k,):
     order_centroids = model.cluster_centers_.argsort()[:, ::-1]
     # Todo: find cluster closeness (sequence similarity)
     terms = vectorizer.get_feature_names()
-    return terms, order_centroids
+    l_word = max(terms, key=lambda s: (len(s), s))
+    return terms, order_centroids, l_word
 
 
-def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
+def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_word):
 
     # initialise counters
     clus_list = []
     words_in_clus = []
-    absolute_hits = []
     # nc_wc = no cluster word count
     nc_wc = 0
     clus_size = 20
     # split into list of words
     word_list = sentence.split()
-    hits_2d = np.array([[0 for x in range(true_k)] for y in range(clus_size)])
-    # check if a specific word is in a cluster
+
+    hits_2d = np.array([[" " * len(l_word) for x in range(true_k)] for y in range(clus_size)])
     for i in range(true_k):
-        print("Cluster %d:" % i),
-        hits = 0
-        # Print x amount of words from each cluster
+        count = 0
         for ind in order_centroids[i, : clus_size]:
-            # Todo: Append/insert terms to each cluster in hits_2dd
-            np.insert(hits_2d, [[terms[ind]]], axis=0)
-            print(' %s' % terms[ind])
-            # check if a specific word is in a cluster
-            if terms[ind] in word_list:
-                hits += 1
-        words_in_clus.append(hits / word_count)
+            # insert into 1D array
+            clus_list.insert(i, terms[ind])
+            # insert into 2D array
+            hits_2d[count, i] = terms[ind]
+            count += 1
     hit_list = collections.Counter(clus_list)
 
     # Transform word_list into probabilities

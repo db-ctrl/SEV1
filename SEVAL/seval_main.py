@@ -27,7 +27,7 @@ true_k = 250
 
 # Generate clusters
 
-terms, order_centroids = seval_funcs2.cluster_texts(documents, true_k)
+terms, order_centroids, l_word = seval_funcs2.cluster_texts(documents, true_k)
 
 # update sheet values
 for i in range(len(sheet.col_values(1))):
@@ -41,7 +41,7 @@ for i in range(len(sheet.col_values(1))):
     sentence = gs_funcs.get_bare_sentence(row)
 
     # calculate cluster metrics
-    words_in_clus, duo_ent, entropy = seval_funcs2.count_words_in_clus(true_k, order_centroids, terms, sentence, word_count)
+    words_in_clus, duo_ent, entropy = seval_funcs2.count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_word)
 
     # update values in g_sheet
     gs_funcs.update_readability_metrics(row)
