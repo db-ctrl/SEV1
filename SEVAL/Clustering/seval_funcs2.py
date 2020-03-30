@@ -7,6 +7,7 @@ import collections
 import pandas as pd
 import scipy.stats
 import numpy as np
+import re
 
 # ignore divide by zero
 np.seterr(divide='ignore', invalid='ignore')
@@ -61,24 +62,29 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_
 
     # Transform word_list into probabilities
     prob_list = []
-
+    # loop through clusters
     for i in range(true_k):
-        # Multiple hits
-        for y in hits_2d[i, clus_size]:
-            if hits_2d[i, y] in hit_list and hit_list[hits_2d[i, y]] > 1:
-                prob_list.append(1 / hit_list[hits_2d[i, y]])
+        # loop through hits
+        for x in range(clus_size):
+            # extract word from 2D Array
+            word = re.sub("[^a-zA-Z]+", "", (str(hits_2d[x, i])))
+
+            # multiple hits
+            if word in word_list and word in hit_list and hit_list[word] > 1:
+                prob_list.append(1 / hit_list[word])
 
             # exactly one hit
-            elif hits_2d[i, y] in hit_list and hit_list[hits_2d[i, y]] == 1:
-                prob_list.append(1 / hit_list[hits_2d[i, y]])
-
+            elif word in word_list and word in hit_list and hit_list[word] == 1:
+                prob_list.append(1 / word_count)
             # no hits
             else:
                 nc_wc += 1
-                word_list[i] = 0
-    sum(word_list)
-    word_list.append(nc_wc / word_count)
-       # sum(words_in_clus)
+                prob_list.append(0)
+
+    prob_list.append(nc_wc / word_count)
+
+    sum(prob_list)
+
     ent = entropy(word_list, base=2)
 
     duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)

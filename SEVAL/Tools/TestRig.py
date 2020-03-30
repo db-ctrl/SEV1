@@ -1,5 +1,11 @@
 
-a = [23.40, 38.99, 31.50, 18.31]
+import numpy as np
 
+# Initialise 2D Array
+c = np.array([[0 for x in range(10)] for y in range(5)])
+p = 0
 
-print(sum(a) / 2)
+for i in (c[0, ...]):
+    c[..., i] = p
+    p += 1
+print (c)

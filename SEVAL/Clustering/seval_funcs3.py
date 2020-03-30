@@ -7,6 +7,7 @@ import collections
 import pandas as pd
 import scipy.stats
 import numpy as np
+import re
 
 # ignore divide by zero
 np.seterr(divide='ignore', invalid='ignore')
@@ -33,54 +34,57 @@ def cluster_texts(documents, true_k,):
     order_centroids = model.cluster_centers_.argsort()[:, ::-1]
     # Todo: find cluster closeness (sequence similarity)
     terms = vectorizer.get_feature_names()
-    return terms, order_centroids
+    l_word = max(terms, key=lambda s: (len(s), s))
+    return terms, order_centroids, l_word
 
 
-def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
+def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_word):
 
     # initialise counters
     clus_list = []
     words_in_clus = []
-    absolute_hits = []
     # nc_wc = no cluster word count
     nc_wc = 0
     clus_size = 20
     # split into list of words
     word_list = sentence.split()
-    a = np.array([[0 for x in range(true_k)], [0 for x in range(len(terms))]])
-    # check if a specific word is in a cluster
+
+    hits_2d = np.array([[" " * len(l_word) for x in range(true_k)] for y in range(clus_size)])
     for i in range(true_k):
-        print("Cluster %d:" % i),
-        hits = 0
-        # Print x amount of words from each cluster
+        count = 0
         for ind in order_centroids[i, : clus_size]:
+            # insert into 1D array
             clus_list.insert(i, terms[ind])
-            print(' %s' % terms[ind])
-            # check if a specific word is in a cluster
-            if terms[ind] in word_list:
-                hits += 1
-        words_in_clus.append(hits / word_count)
+            # insert into 2D array
+            hits_2d[count, i] = terms[ind]
+            count += 1
     hit_list = collections.Counter(clus_list)
 
     # Transform word_list into probabilities
+    prob_list = []
+    # loop through clusters
+    for i in range(true_k):
+        # loop through hits
+        for x in range(clus_size):
+            # extract word from 2D Array
+            word = re.sub("[^a-zA-Z]+", "", (str(hits_2d[x, i])))
 
-    for i in range(len(word_list)):
+            # multiple hits
+            if word in word_list and word in hit_list and hit_list[word] > 1:
+                prob_list.append(1 / hit_list[word])
 
-        # Multiple hits
-        if word_list[i] in hit_list and hit_list[word_list[i]] > 1:
-            word_list[i] = (1 / hit_list[word_list[i]])
+            # exactly one hit
+            elif word in word_list and word in hit_list and hit_list[word] == 1:
+                prob_list.append(1 / word_count)
+            # no hits
+            else:
+                nc_wc += 1
+                prob_list.append(0)
 
-        # exactly one hit
-        elif word_list[i] in hit_list and hit_list[word_list[i]] == 1:
-            word_list[i] = (1 / word_count)
+    prob_list.append(nc_wc / word_count)
 
-        # no hits
-        else:
-            nc_wc += 1
-            word_list[i] = 0
-    sum(word_list)
-    word_list.append(nc_wc / word_count)
-   # sum(words_in_clus)
+    sum(prob_list)
+
     ent = entropy(word_list, base=2)
 
     duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
