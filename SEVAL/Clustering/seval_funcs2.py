@@ -65,6 +65,7 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_
     # loop through clusters
     for i in range(true_k):
         # loop through hits
+        # TODO: Ensure only K+1 elements are added to the probability list
         for x in range(clus_size):
             # extract word from 2D Array
             word = re.sub("[^a-zA-Z]+", "", (str(hits_2d[x, i])))
