@@ -1,13 +1,5 @@
-import numpy as np
+
+a = [23.40, 38.99, 31.50, 18.31]
 
 
-
-
-# Initialise 2D Array
-a = np.array([[" ".join(" ") for x in range(10)] for y in range(5)])
-
-
-a[1, 8] = "muuuuuuuuuuuuuuu"
-
-
-print(a)
+print(sum(a) / 2)

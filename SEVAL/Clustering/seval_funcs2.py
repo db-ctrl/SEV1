@@ -60,24 +60,25 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_
     hit_list = collections.Counter(clus_list)
 
     # Transform word_list into probabilities
+    prob_list = []
 
-    for i in range(len(word_list)):
-
+    for i in range(true_k):
         # Multiple hits
-        if word_list[i] in hit_list and hit_list[word_list[i]] > 1:
-            word_list[i] = (1 / hit_list[word_list[i]])
+        for y in hits_2d[i, clus_size]:
+            if hits_2d[i, y] in hit_list and hit_list[hits_2d[i, y]] > 1:
+                prob_list.append(1 / hit_list[hits_2d[i, y]])
 
-        # exactly one hit
-        elif word_list[i] in hit_list and hit_list[word_list[i]] == 1:
-            word_list[i] = (1 / word_count)
+            # exactly one hit
+            elif hits_2d[i, y] in hit_list and hit_list[hits_2d[i, y]] == 1:
+                prob_list.append(1 / hit_list[hits_2d[i, y]])
 
-        # no hits
-        else:
-            nc_wc += 1
-            word_list[i] = 0
+            # no hits
+            else:
+                nc_wc += 1
+                word_list[i] = 0
     sum(word_list)
     word_list.append(nc_wc / word_count)
-   # sum(words_in_clus)
+       # sum(words_in_clus)
     ent = entropy(word_list, base=2)
 
     duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
