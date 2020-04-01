@@ -3,10 +3,11 @@ from sklearn.neighbors import NearestCentroid
 from scipy.stats import entropy
 from sklearn.feature_extraction.text import TfidfVectorizer
 from SEVAL.Tools import SpacyFuncs
-from collections import Counter
+import collections
 import pandas as pd
 import scipy.stats
 import numpy as np
+import re
 
 # ignore divide by zero
 np.seterr(divide='ignore', invalid='ignore')
@@ -30,43 +31,64 @@ def cluster_texts(documents, true_k,):
 
     model = KMeans(n_clusters=true_k, init='k-means++', max_iter=100, n_init=1)
     model.fit(x)
-
     order_centroids = model.cluster_centers_.argsort()[:, ::-1]
+    # Todo: find cluster closeness (sequence similarity)
     terms = vectorizer.get_feature_names()
+    l_word = max(terms, key=lambda s: (len(s), s))
+    return terms, order_centroids, l_word
 
-    return terms, order_centroids
 
+def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_word):
 
-def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count):
-
-    # initialise counter
-    words_in_clus, hit_count = ([] for i in range(2))
+    # initialise counters
+    clus_list = []
+    words_in_clus = []
+    # nc_wc = no cluster word count
+    nc_wc = 0
+    clus_size = 20
     # split into list of words
-    word_list = sentence.split(" ")
-    # check if a specific word is in a cluster
+    word_list = sentence.split()
+
+    hits_2d = np.array([[" " * len(l_word) for x in range(true_k)] for y in range(clus_size)])
     for i in range(true_k):
-        print("Cluster %d:" % i),
+        count = 0
+        for ind in order_centroids[i, : clus_size]:
+            # insert into 1D array
+            clus_list.insert(i, terms[ind])
+            # insert into 2D array
+            hits_2d[count, i] = terms[ind]
+            count += 1
+    hit_list = collections.Counter(clus_list)
 
-        # Print x amount of words from each cluster
-        for ind in order_centroids[i, : 10]:
-            print(' %s' % terms[ind])
+    # Transform word_list into probabilities
+    prob_list = []
+    # loop through clusters
+    for i in range(true_k):
+        # loop through hits
+        # TODO: Ensure only K+1 elements are added to the probability list
+        for x in range(clus_size):
+            # extract word from 2D Array
+            word = re.sub("[^a-zA-Z]+", "", (str(hits_2d[x, i])))
 
-            # check if a specific word is in a cluster
-            if terms[ind] in word_list:
-                words_in_clus.insert(ind, terms[ind])
+            # multiple hits
+            if word in word_list and word in hit_list and hit_list[word] > 1:
+                prob_list.append(1 / hit_list[word])
 
-    # TODO: Make entropy between 0 and 1
+            # exactly one hit
+            elif word in word_list and word in hit_list and hit_list[word] == 1:
+                prob_list.append(1 / word_count)
+            # no hits
+            else:
+                nc_wc += 1
+                prob_list.append(0)
 
-    sorted_hits = Counter(words_in_clus).most_common(len(word_list))
-    for i in range(len(sorted_hits)):
-        if sorted_hits[i][0] in word_list[i]:
-            hit_count.insert(i, sorted_hits[i][1])
-        else:
-            hit_count.insert(i, int('0'))
+    prob_list.append(nc_wc / word_count)
 
-    ent = (word_count - sum(words_in_clus)) / word_count
+    sum(prob_list)
 
-    duo_ent = entropy([len(words_in_clus) / word_count, (word_count - len(words_in_clus)) / word_count], base=2)
+    ent = entropy(word_list, base=2)
 
-    return [len(words_in_clus), duo_ent, ent]
+    duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
+
+    return [len(absolute_hits), duo_ent, ent]
 

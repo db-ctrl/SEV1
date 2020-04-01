@@ -63,22 +63,27 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_
     # Transform word_list into probabilities
     prob_list = []
     # loop through clusters
-    for i in range(true_k):
-        # loop through hits
-        # TODO: Ensure only K+1 elements are added to the probability list
-        for x in range(clus_size):
-            # extract word from 2D Array
-            word = re.sub("[^a-zA-Z]+", "", (str(hits_2d[x, i])))
+    # TODO: Ensure only K+1 elements are added to the probability list
 
-            # multiple hits
-            if word in word_list and word in hit_list and hit_list[word] > 1:
-                prob_list.append(1 / hit_list[word])
-
-            # exactly one hit
-            elif word in word_list and word in hit_list and hit_list[word] == 1:
-                prob_list.append(1 / word_count)
-            # no hits
-            else:
+    for j in word_list:
+        for i in range(true_k):
+            # loop through hits
+            inclus = None
+            for x in range(clus_size):
+                # extract word from 2D Array
+                word = re.sub("[^a-zA-Z]+", "", (str(hits_2d[x, i])))
+                # multiple hits
+                if word == j and word in hit_list and hit_list[word] > 1:
+                    prob_list.append(1 / hit_list[word])
+                    inclus = True
+                # exactly one hit
+                elif word == j and word in hit_list and hit_list[word] == 1:
+                    prob_list.append(1 / word_count)
+                    inclus = True
+                # no hits
+                else:
+                    pass
+            if not inclus:
                 nc_wc += 1
                 prob_list.append(0)
 

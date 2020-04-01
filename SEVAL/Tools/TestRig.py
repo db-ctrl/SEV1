@@ -8,4 +8,5 @@ p = 0
 for i in (c[0, ...]):
     c[..., i] = p
     p += 1
+
 print (c)
