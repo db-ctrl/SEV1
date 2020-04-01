@@ -82,15 +82,12 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_
         if not inclus:
             prob_list.append(0)
 
-    # prob_list.append(0)
     # nc_wc += 1
-
-
-    prob_list.append(nc_wc / word_count)
+    # prob_list.append(nc_wc / word_count)
 
     sum(prob_list)
 
-    ent = entropy(word_list, base=2)
+    ent = entropy(prob_list, base=2)
 
     duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
 
