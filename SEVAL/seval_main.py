@@ -34,8 +34,8 @@ for i in range(len(sheet.col_values(1))):
     # ignore blank values
     if len(sheet.cell(row, 2).value.split()) == 0:
         pass
-    # TODO: update entropy to incorporate words out of cluster (0 values in sheet)
 
+    # TODO: update entropy to incorporate words out of cluster (0 values in sheet)
     # Get values from g_sheet
     word_count = gs_funcs.get_word_count(row)
     sentence = gs_funcs.get_bare_sentence(row)
@@ -43,6 +43,7 @@ for i in range(len(sheet.col_values(1))):
     # calculate cluster metrics
     words_in_clus, duo_ent, entropy = seval_funcs2.count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_word)
 
+    quit()
     # update values in g_sheet
     gs_funcs.update_readability_metrics(row)
     gs_funcs.update_cluster_metrics(row, words_in_clus, duo_ent, entropy)

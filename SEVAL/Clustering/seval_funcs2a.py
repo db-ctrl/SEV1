@@ -45,7 +45,7 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_
     words_in_clus = []
     # nc_wc = no cluster word count
     nc_wc = 0
-    clus_size = 20
+    clus_size = 10
     # split into list of words
     word_list = sentence.split()
 
@@ -61,32 +61,26 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_
     hit_list = collections.Counter(clus_list)
 
     # Transform word_list into probabilities
-    prob_list = []
+    prob_list = [0] * (true_k+1)
+
     # loop through clusters
-    for i in range(true_k):
+    for word in word_list:
         # loop through hits
-        # TODO: Ensure only K+1 elements are added to the probability list
-        for x in range(clus_size):
-            # extract word from 2D Array
-            word = re.sub("[^a-zA-Z]+", "", (str(hits_2d[x, i])))
-
+        inclus = None
+        for index_in_clus in range(true_k):
             # multiple hits
-            if word in word_list and word in hit_list and hit_list[word] > 1:
-                prob_list.append(1 / hit_list[word])
+            if word in hits_2d[..., index_in_clus]:
+                prob_list[index_in_clus] += (1 / hit_list[word])
+                inclus = True
+        if not inclus:
+            prob_list[true_k] += 1
 
-            # exactly one hit
-            elif word in word_list and word in hit_list and hit_list[word] == 1:
-                prob_list.append(1 / word_count)
-            # no hits
-            else:
-                nc_wc += 1
-                prob_list.append(0)
-
-    prob_list.append(nc_wc / word_count)
+    for i in range(true_k+1):
+        prob_list[i] /= word_count
 
     sum(prob_list)
 
-    ent = entropy(word_list, base=2)
+    ent = entropy(prob_list, base=2)
 
     duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
 

@@ -1,12 +1,11 @@
+import unittest
 
-import numpy as np
 
-# Initialise 2D Array
-c = np.array([[0 for x in range(10)] for y in range(5)])
-p = 0
+class TestEntropy(unittest.TestCase):
 
-for i in (c[0, ...]):
-    c[..., i] = p
-    p += 1
+    def test_is_whole(self):
+        self.assertEqual('', 1)
 
-print (c)
+
+if __name__ == '__main__':
+    unittest.main()
