@@ -38,16 +38,14 @@ def cluster_texts(documents, true_k,):
     return terms, order_centroids, l_word
 
 
-def count_words_in_clus(true_k, order_centroids, terms, sentence, word_count, l_word):
+def count_words_in_clus(true_k, order_centroids, terms, sentence, l_word):
 
     # initialise counters
     clus_list = []
-    words_in_clus = []
-    # nc_wc = no cluster word count
-    nc_wc = 0
     clus_size = 20
     # split into list of words
     word_list = sentence.split()
+    word_count = len(word_list)
 
     hits_2d = np.array([[" " * len(l_word) for x in range(true_k)] for y in range(clus_size)])
     for i in range(true_k):

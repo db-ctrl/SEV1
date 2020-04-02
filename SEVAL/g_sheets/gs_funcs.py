@@ -48,11 +48,6 @@ def update_cluster_metrics(row, words_in_clus, duo_ent, ent):
         time.sleep(1)
 
 
-def get_word_count(row):
-    word_c = len(sheet.cell(row, 2).value.split())
-    return word_c
-
-
 def get_sentence(row):
 
     sentence = sheet.cell(row, 2).value
