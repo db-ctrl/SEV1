@@ -59,8 +59,6 @@ def generate_data(row, true_k, order_centroids, terms, l_word):
 
 # generate_data(row, true_k, order_centroids, terms, l_word)
 
-for k in range(len(sheet.col_values(1))):
-    gs_funcs.normalise_data(row)
-    row += 1
+gs_funcs.normalise_data(row)
 
 

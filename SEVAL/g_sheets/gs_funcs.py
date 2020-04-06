@@ -50,13 +50,27 @@ def normalise_data(row):
     columns = [7, 8, 17]
 
     for col in columns:
+
+        # set row
+        row = 2
+
         metrics = sheet.col_values(col)
+
         # remove header
         metrics = metrics[1:]
-        normal_data = metrics / (np.linalg.norm(metrics))
 
+        # convert to floats
+        for i in range(len(metrics)):
+            if metrics[i] == '':
+                metrics[i] = 0.0
+            else:
+                metrics[i] = float(metrics[i])
+
+        # TODO: amend norm calculation to generate proper values (max should be 1, min should be 0)
+        normal_data = metrics / (np.linalg.norm(metrics))
         for value in normal_data:
             sheet.update_cell(row, col, value)
+            row += 1
             time.sleep(1)
 
 
