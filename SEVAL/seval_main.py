@@ -26,13 +26,14 @@ cols_to_norm = [6]
 true_k = 250
 
 # Generate clusters
-
 terms, order_centroids, l_word = seval_funcs2.cluster_texts(documents, true_k)
 
 for i in range(len(sheet.col_values(1))):
+
     # ignore blank values
     if len(sheet.cell(row, 2).value.split()) == 0:
         pass
+
     # Get values from g_sheet
     sentence = gs_funcs.get_bare_sentence(row)
 
@@ -43,10 +44,10 @@ for i in range(len(sheet.col_values(1))):
     gs_funcs.update_readability_metrics(row, sentence)
     gs_funcs.update_cluster_metrics(row, words_in_clus, duo_ent, entropy, word_count)
 
-    # normalise data
-    gs_funcs.normalise_data()
-
 row += 1
 
+
+# normalise data
+gs_funcs.normalise_data()
 
 

@@ -28,7 +28,7 @@ def cluster_texts(documents, true_k,):
     model.fit(x)
 
     order_centroids = model.cluster_centers_.argsort()[:, ::-1]
-    # Todo: find cluster closeness (sequence similarity)
+    # TODO EXTRA: find cluster closeness (sequence similarity)
     terms = vectorizer.get_feature_names()
 
     # Find longest word in corpus
@@ -41,7 +41,6 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, l_word):
 
     # init counters
     clus_list = []
-    # Todo: ensure counter is for TOTAL words in cluster
     abs_hits = 0
     clus_size = 20
     # split into list of words
@@ -61,10 +60,15 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, l_word):
             count += 1
     hit_list = collections.Counter(clus_list)
 
+    # find absolute hits
+    for word in word_list:
+        if word in hit_list:
+            abs_hits += 1
+
     # init probability array
     prob_list = [0] * (true_k+1)
 
-    # loop through clusters
+    # find probabilities of word appearing in each cluster
     for word in word_list:
         # loop through hits
         inclus = None
@@ -72,16 +76,15 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, l_word):
             # multiple hits
             if word in hits_2d[..., index_in_clus]:
                 prob_list[index_in_clus] += (1 / hit_list[word])
-                abs_hits += 1
                 inclus = True
         if not inclus:
             prob_list[true_k] += 1
 
     for i in range(true_k+1):
         prob_list[i] /= word_count
-    # Todo: Investiate values > 1
-    ent = entropy(prob_list, base=2)
 
+    # calculate normalised entropy
+    ent = sum(prob_list) / entropy(prob_list, base=2)
     duo_ent = entropy([abs_hits / word_count, (word_count - abs_hits) / word_count], base=2)
 
     return [abs_hits, duo_ent, ent, word_count]

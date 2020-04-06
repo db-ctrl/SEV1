@@ -41,7 +41,7 @@ def update_cluster_metrics(row, words_in_clus, duo_ent, ent, word_count):
 def normalise_data(row):
 
     # specify columns to normalise
-    columns = [7, 8]
+    columns = [7, 8, 13]
 
     for col in columns:
         metrics = sheet.col_values(col)
@@ -51,7 +51,6 @@ def normalise_data(row):
 
         for value in normal_data:
             sheet.update_cell(row, col, value)
-
 
 
 def get_bare_sentence(row):
