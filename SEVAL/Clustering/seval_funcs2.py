@@ -84,9 +84,9 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, l_word):
         prob_list[i] /= word_count
 
     # calculate normalised entropy
-    ent = sum(prob_list) / entropy(prob_list, base=2)
+    ent = entropy(prob_list, base=2)
     duo_ent = entropy([abs_hits / word_count, (word_count - abs_hits) / word_count], base=2)
 
-    return [abs_hits, duo_ent, ent, word_count]
+    return abs_hits, duo_ent, ent, word_count
 
 

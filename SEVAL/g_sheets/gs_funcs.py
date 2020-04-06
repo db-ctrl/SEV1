@@ -22,26 +22,32 @@ def update_readability_metrics(row, sentence):
 
     # Update Word Count
     sheet.update_cell(row, 6, (len(sentence.split()))),
+    time.sleep(1)
     # Update Flesch Reading Ease
     sheet.update_cell(row, 7, (textstat.flesch_reading_ease(sheet.cell(row, 2).value))),
+    time.sleep(1)
     # Update Gunning Fog Index
     sheet.update_cell(row, 8, (textstat.gunning_fog(sheet.cell(row, 2).value))),
+    time.sleep(1)
 
 
 def update_cluster_metrics(row, words_in_clus, duo_ent, ent, word_count):
 
     # Update words in cluster
-    sheet.update_cell(row, 9, (words_in_clus / word_count)),
+    sheet.update_cell(row, 9, str(words_in_clus / word_count)),
+    time.sleep(1)
 
     # Update entropy
     sheet.update_cell(row, 10, duo_ent),
+    time.sleep(1)
     sheet.update_cell(row, 11, ent),
+    time.sleep(1)
 
 
 def normalise_data(row):
 
     # specify columns to normalise
-    columns = [7, 8, 13]
+    columns = [7, 8, 17]
 
     for col in columns:
         metrics = sheet.col_values(col)
@@ -51,6 +57,7 @@ def normalise_data(row):
 
         for value in normal_data:
             sheet.update_cell(row, col, value)
+            time.sleep(1)
 
 
 def get_bare_sentence(row):

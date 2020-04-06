@@ -15,39 +15,52 @@ CORPUS_PATH = '/Users/david/PycharmProjects/LSTM-Text-Generator/MainModules/Main
 # Find a workbook by name and open the first sheet
 sheet = client.open("AutoSentenceEval").sheet1
 
-# convert raw text into documents
-documents = seval_funcs2.text_2_list(CORPUS_PATH)
-
 # initialise g_sheet row
 row = 2
-cols_to_norm = [6]
 # choose amount of clusters
-
 true_k = 250
 
-# Generate clusters
-terms, order_centroids, l_word = seval_funcs2.cluster_texts(documents, true_k)
 
-for i in range(len(sheet.col_values(1))):
+def generate_clusters(true_k):
 
-    # ignore blank values
-    if len(sheet.cell(row, 2).value.split()) == 0:
-        pass
+    # convert raw text into documents
+    documents = seval_funcs2.text_2_list(CORPUS_PATH)
 
-    # Get values from g_sheet
-    sentence = gs_funcs.get_bare_sentence(row)
+    # Generate clusters
+    terms, order_centroids, l_word = seval_funcs2.cluster_texts(documents, true_k)
 
-    # calculate cluster metrics
-    words_in_clus, duo_ent, entropy, word_count = seval_funcs2.count_words_in_clus(true_k, order_centroids, terms, sentence, l_word)
-
-    # update values in g_sheet
-    gs_funcs.update_readability_metrics(row, sentence)
-    gs_funcs.update_cluster_metrics(row, words_in_clus, duo_ent, entropy, word_count)
-
-row += 1
+    return terms, order_centroids, l_word
 
 
-# normalise data
-gs_funcs.normalise_data()
+def generate_data(row, true_k, order_centroids, terms, l_word):
+
+    for i in range(len(sheet.col_values(1))):
+
+        # ignore blank values
+        if len(sheet.cell(row, 2).value.split()) == 0:
+            row += 1
+
+        # Get values from g_sheet
+        sentence = gs_funcs.get_bare_sentence(row)
+
+        # calculate cluster metrics
+        words_in_clus, duo_ent, entropy, word_count = seval_funcs2.count_words_in_clus(true_k, order_centroids, terms, sentence, l_word)
+
+        # update values in g_sheet
+        gs_funcs.update_readability_metrics(row, sentence)
+        gs_funcs.update_cluster_metrics(row, words_in_clus, duo_ent, entropy, word_count)
+
+        row += 1
+
+# ---------------------------- Working function ----------------------------
+
+
+# terms, order_centroids, l_word = generate_clusters(true_k)
+
+# generate_data(row, true_k, order_centroids, terms, l_word)
+
+for k in range(len(sheet.col_values(1))):
+    gs_funcs.normalise_data(row)
+    row += 1
 
 
