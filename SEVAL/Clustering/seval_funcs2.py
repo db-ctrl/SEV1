@@ -1,16 +1,11 @@
 from sklearn.cluster import KMeans
-from sklearn.neighbors import NearestCentroid
 from scipy.stats import entropy
 from sklearn.feature_extraction.text import TfidfVectorizer
 from SEVAL.Tools import SpacyFuncs
 import collections
-import pandas as pd
-import scipy.stats
 import numpy as np
 import re
-
-# ignore divide by zero
-np.seterr(divide='ignore', invalid='ignore')
+from sklearn.neighbors import NearestCentroid
 
 
 def text_2_list(corpus):
@@ -31,23 +26,31 @@ def cluster_texts(documents, true_k,):
 
     model = KMeans(n_clusters=true_k, init='k-means++', max_iter=100, n_init=1)
     model.fit(x)
+
     order_centroids = model.cluster_centers_.argsort()[:, ::-1]
     # Todo: find cluster closeness (sequence similarity)
     terms = vectorizer.get_feature_names()
+
+    # Find longest word in corpus
     l_word = max(terms, key=lambda s: (len(s), s))
+
     return terms, order_centroids, l_word
 
 
 def count_words_in_clus(true_k, order_centroids, terms, sentence, l_word):
 
-    # initialise counters
+    # init counters
     clus_list = []
+    # Todo: ensure counter is for TOTAL words in cluster
+    abs_hits = 0
     clus_size = 20
     # split into list of words
     word_list = sentence.split()
     word_count = len(word_list)
 
+    # init n_darray
     hits_2d = np.array([[" " * len(l_word) for x in range(true_k)] for y in range(clus_size)])
+
     for i in range(true_k):
         count = 0
         for ind in order_centroids[i, : clus_size]:
@@ -58,7 +61,7 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, l_word):
             count += 1
     hit_list = collections.Counter(clus_list)
 
-    # Transform word_list into probabilities
+    # init probability array
     prob_list = [0] * (true_k+1)
 
     # loop through clusters
@@ -69,18 +72,18 @@ def count_words_in_clus(true_k, order_centroids, terms, sentence, l_word):
             # multiple hits
             if word in hits_2d[..., index_in_clus]:
                 prob_list[index_in_clus] += (1 / hit_list[word])
+                abs_hits += 1
                 inclus = True
         if not inclus:
             prob_list[true_k] += 1
 
     for i in range(true_k+1):
         prob_list[i] /= word_count
-
-    sum(prob_list)
-
+    # Todo: Investiate values > 1
     ent = entropy(prob_list, base=2)
 
-    duo_ent = entropy([len(absolute_hits) / word_count, (word_count - len(absolute_hits)) / word_count], base=2)
+    duo_ent = entropy([abs_hits / word_count, (word_count - abs_hits) / word_count], base=2)
 
-    return [len(absolute_hits), duo_ent, ent]
+    return [abs_hits, duo_ent, ent, word_count]
+
 

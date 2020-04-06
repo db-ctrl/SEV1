@@ -1,11 +1,11 @@
 
-from collections import Counter
 import textstat
 import time
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 import math
 import re
+import numpy as np
 
 # use creds to create a client to interact with the Google Drive API
 scope = ['https://spreadsheets.google.com/feeds',
@@ -18,44 +18,40 @@ client = gspread.authorize(creds)
 sheet = client.open("AutoSentenceEval").sheet1
 
 
-def update_readability_metrics(row):
+def update_readability_metrics(row, sentence):
 
     # Update Word Count
-    sheet.update_cell(row, 6, (len(sheet.cell(row, 2).value.split()))),
-    time.sleep(1)
+    sheet.update_cell(row, 6, (len(sentence.split()))),
     # Update Flesch Reading Ease
     sheet.update_cell(row, 7, (textstat.flesch_reading_ease(sheet.cell(row, 2).value))),
-    time.sleep(1)
     # Update Gunning Fog Index
     sheet.update_cell(row, 8, (textstat.gunning_fog(sheet.cell(row, 2).value))),
-    time.sleep(1)
 
 
-def update_cluster_metrics(row, words_in_clus, duo_ent, ent):
-    # check if row empty
-    if len(sheet.cell(row, 2).value.split()) == 0:
-        pass
-    else:
-        # Update words in cluster
-        sheet.update_cell(row, 9, str(words_in_clus) + "/" + str(len(sheet.cell(row, 2).value.split()))),
-        time.sleep(1)
-        # Update entropy
-        if math.isnan(duo_ent):
-            sheet.update_cell(row, 10, "N/A"),
-        else:
-            sheet.update_cell(row, 10, duo_ent),
-            sheet.update_cell(row, 11, ent),
-        time.sleep(1)
+def update_cluster_metrics(row, words_in_clus, duo_ent, ent, word_count):
+
+    # Update words in cluster
+    sheet.update_cell(row, 9, (words_in_clus / word_count)),
+
+    # Update entropy
+    sheet.update_cell(row, 10, duo_ent),
+    sheet.update_cell(row, 11, ent),
 
 
-def get_sentence(row):
+def normalise_data(row):
 
-    sentence = sheet.cell(row, 2).value
-    # remove ignored characters from text
-    sentence = sentence.replace('\'', '')
-    sentence = sentence.replace('\n', ' ')
+    # specify columns to normalise
+    columns = [7, 8]
 
-    return sentence
+    for col in columns:
+        metrics = sheet.col_values(col)
+        # remove header
+        metrics = metrics[1:]
+        normal_data = metrics / (np.linalg.norm(metrics))
+
+        for value in normal_data:
+            sheet.update_cell(row, col, value)
+
 
 
 def get_bare_sentence(row):
@@ -72,14 +68,8 @@ def get_bare_sentence(row):
     return sentence
 
 
-def update_entropy(row, entropy, duo_ent):
+def auto_score1(row):
 
-    if len(sheet.cell(row, 2).value.split()) == 0:
-        pass
-    else:
-        # Update entropy
-        if math.isnan(entropy):
-            sheet.update_cell(row, 10, "N/A"),
-        else:
-            sheet.update_cell(row, 10, duo_ent),
-            sheet.update_cell(row, 11, entropy),
+    auto_score = ''
+
+    return auto_score

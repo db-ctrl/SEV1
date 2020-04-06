@@ -18,12 +18,10 @@ sheet = client.open("AutoSentenceEval").sheet1
 # Calculate & generate sentence word count
 row = 2
 
-sentence = ["sssssssa", "b\n", "c\n"]
-clean_sent = []
-for item in sentence:
-    clean_sent.append(item.strip())
+test = sheet.col_values(6)
+test = test[1:]
 
-sheet.insert_row(["WbasedModel2", ' '.join(map(str, clean_sent))], row)
+done = 'done'
 
 #Calculate sentence Flesch Reading Ease
 
