@@ -15,6 +15,7 @@ CORPUS_PATH = '/Users/david/PycharmProjects/LSTM-Text-Generator/MainModules/Main
 # Find a workbook by name and open the first sheet
 sheet = client.open("AutoSentenceEval").sheet1
 
+sheet_range = len(sheet.col_values(1))
 # initialise g_sheet row
 row = 2
 # choose amount of clusters
@@ -34,11 +35,7 @@ def generate_clusters(true_k):
 
 def generate_data(row, true_k, order_centroids, terms, l_word):
 
-    for i in range(len(sheet.col_values(1))):
-
-        # ignore blank values
-        if len(sheet.cell(row, 2).value.split()) == 0:
-            row += 1
+    for i in range(sheet_range):
 
         # Get values from g_sheet
         sentence = gs_funcs.get_bare_sentence(row)
@@ -61,4 +58,6 @@ def generate_data(row, true_k, order_centroids, terms, l_word):
 
 gs_funcs.normalise_data(row)
 
-
+# for j in range(sheet_range):
+#    gs_funcs.set_auto_scores(row)
+#    row += 1

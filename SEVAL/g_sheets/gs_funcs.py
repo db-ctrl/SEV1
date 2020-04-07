@@ -47,7 +47,7 @@ def update_cluster_metrics(row, words_in_clus, duo_ent, ent, word_count):
 def normalise_data(row):
 
     # specify columns to normalise
-    columns = [7, 8, 17]
+    columns = [13, 14, 15, 16]
 
     for col in columns:
 
@@ -66,8 +66,10 @@ def normalise_data(row):
             else:
                 metrics[i] = float(metrics[i])
 
-        # TODO: amend norm calculation to generate proper values (max should be 1, min should be 0)
-        normal_data = metrics / (np.linalg.norm(metrics))
+        # normal_data = metrics / (np.linalg.norm(metrics))
+
+        normal_data = [float(i)/max(metrics) for i in metrics]
+
         for value in normal_data:
             sheet.update_cell(row, col, value)
             row += 1
@@ -88,8 +90,41 @@ def get_bare_sentence(row):
     return sentence
 
 
-def auto_score1(row):
+def get_norm_values(row):
 
-    auto_score = ''
+    fre = float(sheet.cell(row, 7).value)
+    gfi = float(sheet.cell(row, 8).value)
+    wic = float(sheet.cell(row, 9).value)
+    ent1 = float(sheet.cell(row, 10).value)
+    ent2 = float(sheet.cell(row, 11).value)
 
-    return auto_score
+    return fre, gfi, wic, ent1, ent2
+
+
+def set_auto_scores(row):
+
+    fre, gfi, wic, ent1, ent2 = get_norm_values(row)
+
+    # calculate autoscores
+    as1 = ((1.5 * fre) + (1.1 * gfi) + (0.6 * wic) + math.pow((1.8 * ent1), ent2)) / 5
+    as2 = (math.pow(fre, gfi) + (1 / wic) + math.sin(ent2 + math.cos(ent1))) / 5
+    as3 = (math.pow(wic, gfi) + (1 / fre) + (ent1 / ent2)) / 5
+    as4 = (((math.pow(math.tan(wic), ent2)) / (math.pow(math.sin(ent1), fre))) + (0.6 * gfi) / 5)
+
+    # update autoscores
+    sheet.update_cell(row, 13, as1),
+    time.sleep(1)
+
+    sheet.update_cell(row, 14, as2),
+    time.sleep(1)
+
+    sheet.update_cell(row, 15, as3),
+    time.sleep(1)
+
+    sheet.update_cell(row, 16, as4),
+    time.sleep(1)
+
+
+
+
+
